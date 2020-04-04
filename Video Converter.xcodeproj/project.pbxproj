@@ -110,14 +110,12 @@
 		69C35DAE24387AE500BAFA30 /* Video Converter */ = {
 			isa = PBXGroup;
 			children = (
-				69860FF72438FB7B000129ED /* ProgressBar.swift */,
+				69FB0A102439037C006FF903 /* Common */,
 				69C35DDE24387AF800BAFA30 /* Application */,
 				69C35DB324387AE600BAFA30 /* Assets.xcassets */,
 				69C35DBB24387AE600BAFA30 /* Info.plist */,
 				69C35DBC24387AE600BAFA30 /* Video_Converter.entitlements */,
 				69C35DB524387AE600BAFA30 /* Preview Content */,
-				69C35DE924387C3900BAFA30 /* VideoFormat.swift */,
-				69860FF92438FE83000129ED /* Float+cg.swift */,
 			);
 			path = "Video Converter";
 			sourceTree = "<group>";
@@ -151,8 +149,8 @@
 		69C35DDE24387AF800BAFA30 /* Application */ = {
 			isa = PBXGroup;
 			children = (
-				69C35DE624387B3400BAFA30 /* Video Converter */,
 				69C35DDF24387B0100BAFA30 /* Main */,
+				69C35DE624387B3400BAFA30 /* Video Converter */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -175,6 +173,16 @@
 				697EC1E22438B4F600A1C365 /* VideoConverterInteractor.swift */,
 			);
 			path = "Video Converter";
+			sourceTree = "<group>";
+		};
+		69FB0A102439037C006FF903 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				69860FF72438FB7B000129ED /* ProgressBar.swift */,
+				69C35DE924387C3900BAFA30 /* VideoFormat.swift */,
+				69860FF92438FE83000129ED /* Float+cg.swift */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
