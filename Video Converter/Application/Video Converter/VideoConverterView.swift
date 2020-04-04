@@ -71,6 +71,7 @@ struct VideoConverterView : View {
             Picker(
                 selection: $state.videoTargetFormat,
                 label: Text("Convert to:")
+                    .font(.body)
             ) {
                 ForEach(VideoFormat.allCases, id: \.self) {
                     Text(".\($0.rawValue) (\($0.description))")
@@ -141,6 +142,7 @@ extension VideoConverterView {
                     Spacer()
                     Text(prompt)
                         .font(.largeTitle)
+                        .fontWeight(.bold)
                     Spacer()
                     if progress != nil {
                         ProgressBar(progress: progress!)
