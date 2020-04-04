@@ -1,0 +1,650 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		697EC1E32438B4F600A1C365 /* VideoConverterInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 697EC1E22438B4F600A1C365 /* VideoConverterInteractor.swift */; };
+		69860FF82438FB7B000129ED /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69860FF72438FB7B000129ED /* ProgressBar.swift */; };
+		69860FFA2438FE83000129ED /* Float+cg.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69860FF92438FE83000129ED /* Float+cg.swift */; };
+		69C35DB024387AE500BAFA30 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C35DAF24387AE500BAFA30 /* AppDelegate.swift */; };
+		69C35DB224387AE500BAFA30 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C35DB124387AE500BAFA30 /* ContentView.swift */; };
+		69C35DB424387AE600BAFA30 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 69C35DB324387AE600BAFA30 /* Assets.xcassets */; };
+		69C35DB724387AE600BAFA30 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 69C35DB624387AE600BAFA30 /* Preview Assets.xcassets */; };
+		69C35DBA24387AE600BAFA30 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69C35DB824387AE600BAFA30 /* Main.storyboard */; };
+		69C35DC624387AE700BAFA30 /* Video_ConverterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C35DC524387AE700BAFA30 /* Video_ConverterTests.swift */; };
+		69C35DD124387AE700BAFA30 /* Video_ConverterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C35DD024387AE700BAFA30 /* Video_ConverterUITests.swift */; };
+		69C35DE524387B3000BAFA30 /* VideoConverterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C35DE424387B3000BAFA30 /* VideoConverterView.swift */; };
+		69C35DE824387B9600BAFA30 /* VideoConverterState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C35DE724387B9600BAFA30 /* VideoConverterState.swift */; };
+		69C35DEA24387C3900BAFA30 /* VideoFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C35DE924387C3900BAFA30 /* VideoFormat.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		69C35DC224387AE700BAFA30 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 69C35DA424387AE400BAFA30 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 69C35DAB24387AE500BAFA30;
+			remoteInfo = "Video Converter";
+		};
+		69C35DCD24387AE700BAFA30 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 69C35DA424387AE400BAFA30 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 69C35DAB24387AE500BAFA30;
+			remoteInfo = "Video Converter";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		697EC1E22438B4F600A1C365 /* VideoConverterInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoConverterInteractor.swift; sourceTree = "<group>"; };
+		69860FF72438FB7B000129ED /* ProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
+		69860FF92438FE83000129ED /* Float+cg.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Float+cg.swift"; sourceTree = "<group>"; };
+		69C35DAC24387AE500BAFA30 /* Video Converter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Video Converter.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		69C35DAF24387AE500BAFA30 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		69C35DB124387AE500BAFA30 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		69C35DB324387AE600BAFA30 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		69C35DB624387AE600BAFA30 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		69C35DB924387AE600BAFA30 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		69C35DBB24387AE600BAFA30 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		69C35DBC24387AE600BAFA30 /* Video_Converter.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Video_Converter.entitlements; sourceTree = "<group>"; };
+		69C35DC124387AE700BAFA30 /* Video ConverterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Video ConverterTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		69C35DC524387AE700BAFA30 /* Video_ConverterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Video_ConverterTests.swift; sourceTree = "<group>"; };
+		69C35DC724387AE700BAFA30 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		69C35DCC24387AE700BAFA30 /* Video ConverterUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Video ConverterUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		69C35DD024387AE700BAFA30 /* Video_ConverterUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Video_ConverterUITests.swift; sourceTree = "<group>"; };
+		69C35DD224387AE700BAFA30 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		69C35DE424387B3000BAFA30 /* VideoConverterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoConverterView.swift; sourceTree = "<group>"; };
+		69C35DE724387B9600BAFA30 /* VideoConverterState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoConverterState.swift; sourceTree = "<group>"; };
+		69C35DE924387C3900BAFA30 /* VideoFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoFormat.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		69C35DA924387AE500BAFA30 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		69C35DBE24387AE700BAFA30 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		69C35DC924387AE700BAFA30 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		69C35DA324387AE400BAFA30 = {
+			isa = PBXGroup;
+			children = (
+				69C35DAE24387AE500BAFA30 /* Video Converter */,
+				69C35DC424387AE700BAFA30 /* Video ConverterTests */,
+				69C35DCF24387AE700BAFA30 /* Video ConverterUITests */,
+				69C35DAD24387AE500BAFA30 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		69C35DAD24387AE500BAFA30 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				69C35DAC24387AE500BAFA30 /* Video Converter.app */,
+				69C35DC124387AE700BAFA30 /* Video ConverterTests.xctest */,
+				69C35DCC24387AE700BAFA30 /* Video ConverterUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		69C35DAE24387AE500BAFA30 /* Video Converter */ = {
+			isa = PBXGroup;
+			children = (
+				69860FF72438FB7B000129ED /* ProgressBar.swift */,
+				69C35DDE24387AF800BAFA30 /* Application */,
+				69C35DB324387AE600BAFA30 /* Assets.xcassets */,
+				69C35DBB24387AE600BAFA30 /* Info.plist */,
+				69C35DBC24387AE600BAFA30 /* Video_Converter.entitlements */,
+				69C35DB524387AE600BAFA30 /* Preview Content */,
+				69C35DE924387C3900BAFA30 /* VideoFormat.swift */,
+				69860FF92438FE83000129ED /* Float+cg.swift */,
+			);
+			path = "Video Converter";
+			sourceTree = "<group>";
+		};
+		69C35DB524387AE600BAFA30 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				69C35DB624387AE600BAFA30 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		69C35DC424387AE700BAFA30 /* Video ConverterTests */ = {
+			isa = PBXGroup;
+			children = (
+				69C35DC524387AE700BAFA30 /* Video_ConverterTests.swift */,
+				69C35DC724387AE700BAFA30 /* Info.plist */,
+			);
+			path = "Video ConverterTests";
+			sourceTree = "<group>";
+		};
+		69C35DCF24387AE700BAFA30 /* Video ConverterUITests */ = {
+			isa = PBXGroup;
+			children = (
+				69C35DD024387AE700BAFA30 /* Video_ConverterUITests.swift */,
+				69C35DD224387AE700BAFA30 /* Info.plist */,
+			);
+			path = "Video ConverterUITests";
+			sourceTree = "<group>";
+		};
+		69C35DDE24387AF800BAFA30 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				69C35DE624387B3400BAFA30 /* Video Converter */,
+				69C35DDF24387B0100BAFA30 /* Main */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		69C35DDF24387B0100BAFA30 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				69C35DAF24387AE500BAFA30 /* AppDelegate.swift */,
+				69C35DB124387AE500BAFA30 /* ContentView.swift */,
+				69C35DB824387AE600BAFA30 /* Main.storyboard */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		69C35DE624387B3400BAFA30 /* Video Converter */ = {
+			isa = PBXGroup;
+			children = (
+				69C35DE424387B3000BAFA30 /* VideoConverterView.swift */,
+				69C35DE724387B9600BAFA30 /* VideoConverterState.swift */,
+				697EC1E22438B4F600A1C365 /* VideoConverterInteractor.swift */,
+			);
+			path = "Video Converter";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		69C35DAB24387AE500BAFA30 /* Video Converter */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 69C35DD524387AE700BAFA30 /* Build configuration list for PBXNativeTarget "Video Converter" */;
+			buildPhases = (
+				69C35DA824387AE500BAFA30 /* Sources */,
+				69C35DA924387AE500BAFA30 /* Frameworks */,
+				69C35DAA24387AE500BAFA30 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Video Converter";
+			productName = "Video Converter";
+			productReference = 69C35DAC24387AE500BAFA30 /* Video Converter.app */;
+			productType = "com.apple.product-type.application";
+		};
+		69C35DC024387AE700BAFA30 /* Video ConverterTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 69C35DD824387AE700BAFA30 /* Build configuration list for PBXNativeTarget "Video ConverterTests" */;
+			buildPhases = (
+				69C35DBD24387AE700BAFA30 /* Sources */,
+				69C35DBE24387AE700BAFA30 /* Frameworks */,
+				69C35DBF24387AE700BAFA30 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				69C35DC324387AE700BAFA30 /* PBXTargetDependency */,
+			);
+			name = "Video ConverterTests";
+			productName = "Video ConverterTests";
+			productReference = 69C35DC124387AE700BAFA30 /* Video ConverterTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		69C35DCB24387AE700BAFA30 /* Video ConverterUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 69C35DDB24387AE700BAFA30 /* Build configuration list for PBXNativeTarget "Video ConverterUITests" */;
+			buildPhases = (
+				69C35DC824387AE700BAFA30 /* Sources */,
+				69C35DC924387AE700BAFA30 /* Frameworks */,
+				69C35DCA24387AE700BAFA30 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				69C35DCE24387AE700BAFA30 /* PBXTargetDependency */,
+			);
+			name = "Video ConverterUITests";
+			productName = "Video ConverterUITests";
+			productReference = 69C35DCC24387AE700BAFA30 /* Video ConverterUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		69C35DA424387AE400BAFA30 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1140;
+				LastUpgradeCheck = 1140;
+				ORGANIZATIONNAME = "Jay Lee";
+				TargetAttributes = {
+					69C35DAB24387AE500BAFA30 = {
+						CreatedOnToolsVersion = 11.4;
+					};
+					69C35DC024387AE700BAFA30 = {
+						CreatedOnToolsVersion = 11.4;
+						TestTargetID = 69C35DAB24387AE500BAFA30;
+					};
+					69C35DCB24387AE700BAFA30 = {
+						CreatedOnToolsVersion = 11.4;
+						TestTargetID = 69C35DAB24387AE500BAFA30;
+					};
+				};
+			};
+			buildConfigurationList = 69C35DA724387AE400BAFA30 /* Build configuration list for PBXProject "Video Converter" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 69C35DA324387AE400BAFA30;
+			productRefGroup = 69C35DAD24387AE500BAFA30 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				69C35DAB24387AE500BAFA30 /* Video Converter */,
+				69C35DC024387AE700BAFA30 /* Video ConverterTests */,
+				69C35DCB24387AE700BAFA30 /* Video ConverterUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		69C35DAA24387AE500BAFA30 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				69C35DBA24387AE600BAFA30 /* Main.storyboard in Resources */,
+				69C35DB724387AE600BAFA30 /* Preview Assets.xcassets in Resources */,
+				69C35DB424387AE600BAFA30 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		69C35DBF24387AE700BAFA30 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		69C35DCA24387AE700BAFA30 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		69C35DA824387AE500BAFA30 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				697EC1E32438B4F600A1C365 /* VideoConverterInteractor.swift in Sources */,
+				69C35DE824387B9600BAFA30 /* VideoConverterState.swift in Sources */,
+				69C35DEA24387C3900BAFA30 /* VideoFormat.swift in Sources */,
+				69C35DB224387AE500BAFA30 /* ContentView.swift in Sources */,
+				69860FFA2438FE83000129ED /* Float+cg.swift in Sources */,
+				69C35DE524387B3000BAFA30 /* VideoConverterView.swift in Sources */,
+				69C35DB024387AE500BAFA30 /* AppDelegate.swift in Sources */,
+				69860FF82438FB7B000129ED /* ProgressBar.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		69C35DBD24387AE700BAFA30 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				69C35DC624387AE700BAFA30 /* Video_ConverterTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		69C35DC824387AE700BAFA30 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				69C35DD124387AE700BAFA30 /* Video_ConverterUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		69C35DC324387AE700BAFA30 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 69C35DAB24387AE500BAFA30 /* Video Converter */;
+			targetProxy = 69C35DC224387AE700BAFA30 /* PBXContainerItemProxy */;
+		};
+		69C35DCE24387AE700BAFA30 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 69C35DAB24387AE500BAFA30 /* Video Converter */;
+			targetProxy = 69C35DCD24387AE700BAFA30 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		69C35DB824387AE600BAFA30 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				69C35DB924387AE600BAFA30 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		69C35DD324387AE700BAFA30 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		69C35DD424387AE700BAFA30 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		69C35DD624387AE700BAFA30 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Video Converter/Video_Converter.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_ASSET_PATHS = "\"Video Converter/Preview Content\"";
+				DEVELOPMENT_TEAM = EBL648DP7E;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = "Video Converter/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				PRODUCT_BUNDLE_IDENTIFIER = "ml.zetablog.Video-Converter";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		69C35DD724387AE700BAFA30 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Video Converter/Video_Converter.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_ASSET_PATHS = "\"Video Converter/Preview Content\"";
+				DEVELOPMENT_TEAM = EBL648DP7E;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = "Video Converter/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				PRODUCT_BUNDLE_IDENTIFIER = "ml.zetablog.Video-Converter";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		69C35DD924387AE700BAFA30 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = EBL648DP7E;
+				INFOPLIST_FILE = "Video ConverterTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				PRODUCT_BUNDLE_IDENTIFIER = "ml.zetablog.Video-ConverterTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Video Converter.app/Contents/MacOS/Video Converter";
+			};
+			name = Debug;
+		};
+		69C35DDA24387AE700BAFA30 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = EBL648DP7E;
+				INFOPLIST_FILE = "Video ConverterTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				PRODUCT_BUNDLE_IDENTIFIER = "ml.zetablog.Video-ConverterTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Video Converter.app/Contents/MacOS/Video Converter";
+			};
+			name = Release;
+		};
+		69C35DDC24387AE700BAFA30 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = EBL648DP7E;
+				INFOPLIST_FILE = "Video ConverterUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "ml.zetablog.Video-ConverterUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = "Video Converter";
+			};
+			name = Debug;
+		};
+		69C35DDD24387AE700BAFA30 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = EBL648DP7E;
+				INFOPLIST_FILE = "Video ConverterUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "ml.zetablog.Video-ConverterUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = "Video Converter";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		69C35DA724387AE400BAFA30 /* Build configuration list for PBXProject "Video Converter" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				69C35DD324387AE700BAFA30 /* Debug */,
+				69C35DD424387AE700BAFA30 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		69C35DD524387AE700BAFA30 /* Build configuration list for PBXNativeTarget "Video Converter" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				69C35DD624387AE700BAFA30 /* Debug */,
+				69C35DD724387AE700BAFA30 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		69C35DD824387AE700BAFA30 /* Build configuration list for PBXNativeTarget "Video ConverterTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				69C35DD924387AE700BAFA30 /* Debug */,
+				69C35DDA24387AE700BAFA30 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		69C35DDB24387AE700BAFA30 /* Build configuration list for PBXNativeTarget "Video ConverterUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				69C35DDC24387AE700BAFA30 /* Debug */,
+				69C35DDD24387AE700BAFA30 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 69C35DA424387AE400BAFA30 /* Project object */;
+}
