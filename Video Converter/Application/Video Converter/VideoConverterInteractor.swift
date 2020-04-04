@@ -73,29 +73,19 @@ final class VideoConverterInteractor : VideoConverterActionHandler {
                 duration: avAsset.duration
             )
 
-            let exportProgressBarTimer = Timer.scheduledTimer(
-                withTimeInterval: 0.1,
-                repeats: true
-            ) { timer in
-                let progress = exportSession.progress
-                if (progress < 1) {
-                    NotificationCenter.default.post(
-                        name: .progressBarPercentage,
-                        object: nil,
-                        userInfo: ["progress": progress]
+            let timerCancellable = Timer
+                .publish(every: 0.1, on: .main, in: .default)
+                .autoconnect()
+                .sink { _ in
+                    state.conversionStatus = .inProgress(
+                        exportSession.progress
                     )
                 }
-            }
-            
-            NotificationCenter.default.publisher(for: .progressBarPercentage)
-                .sink { notification in
-                    let progress = notification.userInfo!["progress"] as! Float
-                    state.conversionStatus = .inProgress(progress)
-                }
-                .store(in: &self.cancellables)
+            timerCancellable.store(in: &self.cancellables)
 
             exportSession.exportAsynchronously {
-                exportProgressBarTimer.invalidate()
+                timerCancellable.cancel()
+
                 DispatchQueue.main.async {
                     switch exportSession.status {
                     case .failed:
