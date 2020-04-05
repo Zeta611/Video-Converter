@@ -6,10 +6,10 @@
 //  Copyright © 2020 Jay Lee. All rights reserved.
 //
 
-import Foundation
+import AVFoundation
 import Cocoa
 import Combine
-import AVFoundation
+import Foundation
 
 protocol VideoConverterActionHandler {
     func setInputVideo(at url: URL)
@@ -17,9 +17,17 @@ protocol VideoConverterActionHandler {
 }
 
 final class VideoConverterInteractor : VideoConverterActionHandler {
+    private enum PanelError : Error {
+        case cancelled
+    }
+
     let state: VideoConverterState
 
     private var cancellables = [AnyCancellable]()
+
+    init(state: VideoConverterState) {
+        self.state = state
+    }
 
     func setInputVideo(at url: URL) {
         if case .inProgress = state.conversionStatus { return }
@@ -29,118 +37,67 @@ final class VideoConverterInteractor : VideoConverterActionHandler {
     }
 
     func convertVideo() {
+        guard let inputVideoPath = state.inputVideoPath else {
+            assertionFailure("inputVideoPath should be set")
+            return
+        }
+        let videoTargetFormat = state.videoTargetFormat
+
         weak var state = self.state
-        openPanel().sink(receiveCompletion: { _ in }) { [weak self] in
-            guard
-                let self = self,
-                let state = state,
-                let videoURL = state.inputVideoPath
-            else {
-                preconditionFailure("inputVideoPath should be set")
+
+        openPanel(at: inputVideoPath)
+            .catch { _ in Empty() }
+            .setFailureType(to: VideoConversionError.self)
+            .flatMap { [weak self] outputVideoPath in
+                self?.getExportSession(
+                    from: inputVideoPath,
+                    to: outputVideoPath,
+                    of: videoTargetFormat
+                ) ?? Result.Publisher(.unknown)
             }
-
-            let avAsset = AVURLAsset(url: videoURL, options: nil)
-
-            guard let exportSession = AVAssetExportSession(
-                asset: avAsset,
-                presetName: AVAssetExportPresetPassthrough
-            ) else {
-                state.conversionStatus = .failed(.noExportSession)
-                return
-            }
-
-            let fileManager = FileManager.default
-            guard let filePath = state.outputVideoPath else {
-                preconditionFailure("outputVideoPath should be set")
-            }
-
-            if fileManager.fileExists(atPath: filePath.path) {
-                do {
-                    try fileManager.removeItem(at: filePath)
-                } catch {
-                    state.conversionStatus = .failed(.fileManagerError(error))
-                    return
+            .flatMap { exportSession in
+                Future { promise in
+                    exportSession.exportAsynchronously {
+                        promise(.success(exportSession))
+                    }
                 }
             }
+            .receive(on: DispatchQueue.main)
+            .sink(
+                receiveCompletion: { completion in
+                    guard case let .failure(error) = completion else { return }
+                    state?.conversionStatus = .failed(error)
+                },
+                receiveValue: { (exportSession: AVAssetExportSession) in
+                    switch (exportSession.status, exportSession.error) {
+                    case (.failed, .none):
+                        assertionFailure("exportSession should have an error")
+                        state?.conversionStatus = .failed(.unknown)
 
-            exportSession.outputURL = filePath
-            exportSession.outputFileType = state.videoTargetFormat
-                .avFileType
-            exportSession.shouldOptimizeForNetworkUse = true
-
-            exportSession.timeRange = CMTimeRangeMake(
-                start: CMTimeMakeWithSeconds(0, preferredTimescale: 0),
-                duration: avAsset.duration
-            )
-
-            let timerCancellable = Timer
-                .publish(every: 0.1, on: .main, in: .default)
-                .autoconnect()
-                .sink { _ in
-                    state.conversionStatus = .inProgress(
-                        exportSession.progress
-                    )
-                }
-            timerCancellable.store(in: &self.cancellables)
-
-            exportSession.exportAsynchronously {
-                timerCancellable.cancel()
-
-                DispatchQueue.main.async {
-                    switch exportSession.status {
-                    case .failed:
-                        guard let error = exportSession.error else {
-                            assertionFailure(
-                                "exportSession should have an error"
-                            )
-                            state.conversionStatus = .failed(.unknown)
-                            return
-                        }
-                        state.conversionStatus = .failed(
+                    case (.failed, .some(let error)):
+                        state?.conversionStatus = .failed(
                             .exportSessionError(error)
                         )
-                        return
 
-                    case .cancelled:
-                        state.conversionStatus = .failed(.exportCancelled)
-                        return
+                    case (.cancelled, _):
+                        state?.conversionStatus = .failed(.exportCancelled)
 
-                    case .completed:
-                        switch exportSession.outputURL {
-                        case .none:
-                            assertionFailure(
-                                "exportSession should have an output url"
-                            )
-                            state.conversionStatus = .failed(.unknown)
-                            return
-
-                        case .some:
-                            state.conversionStatus = .done
-                            return
-                        }
+                    case (.completed, _):
+                        state?.conversionStatus = .done
 
                     default:
-                        assertionFailure("Unknown exportSession state")
-                        state.conversionStatus = .failed(.unknown)
-                        return
-    //                case .unknown:
-    //                case .waiting:
-    //                case .exporting:
+                        state?.conversionStatus = .failed(.unknown)
                     }
-
                 }
-            }
-        }
-        .store(in: &cancellables)
+            )
+            .store(in: &cancellables)
     }
 
-    private func openPanel() -> Future<Void, SavePanelError> {
+    private func openPanel(at inputVideoPath: URL) -> Future<URL, PanelError> {
         let panel = NSSavePanel()
-        panel.directoryURL = state.inputVideoPath?.deletingLastPathComponent()
-        let fileName = state.inputVideoPath?
-            .deletingPathExtension()
-            .lastPathComponent
-            ?? "converted"
+        panel.directoryURL = inputVideoPath.deletingLastPathComponent()
+
+        let fileName = inputVideoPath.deletingPathExtension().lastPathComponent
         let fileExtension = state.videoTargetFormat.rawValue
         panel.nameFieldStringValue = "\(fileName).\(fileExtension)"
 
@@ -148,31 +105,61 @@ final class VideoConverterInteractor : VideoConverterActionHandler {
             panel.begin { response in
                 guard
                     case .OK = response,
-                    let url = panel.url
+                    let outputVideoPath = panel.url
                 else {
                     promise(.failure(.cancelled))
                     return
                 }
-                self.state.outputVideoPath = url
+                self.state.outputVideoPath = outputVideoPath
                 self.state.conversionStatus = .inProgress(0)
-                promise(.success(Void()))
+                promise(.success(outputVideoPath))
             }
         }
     }
 
-    private enum SavePanelError : Error {
-        case cancelled
-    }
+    private func getExportSession(
+        from inputVideoPath: URL,
+        to outputVideoPath: URL,
+        of videoTargetFormat: VideoFormat
+    ) -> Result<AVAssetExportSession, VideoConversionError>.Publisher {
+        let avAsset = AVURLAsset(url: inputVideoPath)
+        guard let exportSession = AVAssetExportSession(
+            asset: avAsset,
+            presetName: AVAssetExportPresetPassthrough
+        ) else {
+            return Result.Publisher(.noExportSession)
+        }
 
-    init(state: VideoConverterState) {
-        self.state = state
-    }
+        let fileManager = FileManager.default
+        if fileManager.fileExists(atPath: outputVideoPath.path) {
+            do {
+                try fileManager.removeItem(at: outputVideoPath)
+            } catch {
+                return Result.Publisher(.fileManagerError(error))
+            }
+        }
 
-    deinit {
-        print("Interactor released")
-    }
-}
+        exportSession.outputURL = outputVideoPath
+        exportSession.outputFileType = videoTargetFormat.avFileType
+        exportSession.shouldOptimizeForNetworkUse = true
+        exportSession.timeRange = CMTimeRangeMake(
+            start: CMTimeMakeWithSeconds(0, preferredTimescale: 0),
+            duration: avAsset.duration
+        )
 
-extension Notification.Name {
-    static let progressBarPercentage = Self("ProgressBarPercentage")
+        var progressCancellable: AnyCancellable?
+        progressCancellable = Timer
+            .publish(every: 0.1, on: .main, in: .default)
+            .autoconnect()
+            .sink { [weak state] _ in
+                let progress = exportSession.progress
+                if progress == 1 {
+                    progressCancellable?.cancel()
+                } else {
+                    state?.conversionStatus = .inProgress(progress)
+                }
+            }
+
+        return Result.Publisher(exportSession)
+    }
 }

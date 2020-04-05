@@ -6,8 +6,8 @@
 //  Copyright © 2020 Jay Lee. All rights reserved.
 //
 
-import Foundation
 import AVFoundation
+import Foundation
 
 enum VideoFormat : String, CustomStringConvertible, CaseIterable, Hashable {
     case mov

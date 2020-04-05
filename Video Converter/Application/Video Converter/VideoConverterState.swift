@@ -13,10 +13,6 @@ final class VideoConverterState : ObservableObject {
     @Published var outputVideoPath: URL?
     @Published var conversionStatus: VideoConversionStatus = .undone
     @Published var videoTargetFormat: VideoFormat = .mov
-
-    deinit {
-        print("State released")
-    }
 }
 
 extension VideoConverterState {
@@ -33,15 +29,5 @@ extension VideoConverterState {
         var isInProgress: Bool {
             if case .inProgress = self { return true } else { return false }
         }
-    }
-
-    enum VideoConversionError : Error {
-        case noExportSession
-        case noDirectory
-        case fileManagerError(Error)
-        case exportFailed
-        case exportCancelled
-        case exportSessionError(Error)
-        case unknown
     }
 }

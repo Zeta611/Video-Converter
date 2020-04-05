@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct ProgressBar: View {
+struct ProgressBar : View {
     let progress: Float
 
     var body: some View {
@@ -25,7 +25,7 @@ struct ProgressBar: View {
     }
 }
 
-struct ProgressBar_Previews: PreviewProvider {
+struct ProgressBar_Previews : PreviewProvider {
     static var previews: some View {
         Group {
             ProgressBar(progress: 0.6).colorScheme(.light)

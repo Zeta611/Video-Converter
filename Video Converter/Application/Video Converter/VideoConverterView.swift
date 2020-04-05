@@ -96,7 +96,7 @@ struct VideoConverterView : View {
                 itemProvider.loadItem(
                     forTypeIdentifier: kUTTypeFileURL as String,
                     options: nil
-                ) { item, error in
+                ) { item, _ in
                     guard
                         let data = item as? Data,
                         let url = URL(
@@ -117,7 +117,7 @@ struct VideoConverterView : View {
             }
             .disabled(
                 state.inputVideoPath == nil
-                    || !state.conversionStatus.isUndone
+                    || state.conversionStatus.isInProgress
             )
             .padding(.bottom)
         }
@@ -145,6 +145,7 @@ extension VideoConverterView {
                         .fontWeight(.bold)
                     Spacer()
                     if progress != nil {
+                        // swiftlint:disable:next force_unwrapping
                         ProgressBar(progress: progress!)
                             .frame(height: 7)
                             .padding()
@@ -158,6 +159,11 @@ extension VideoConverterView {
 }
 
 struct VideoConverterView_Previews : PreviewProvider {
+    private struct StubActionHandler : VideoConverterActionHandler {
+        func setInputVideo(at url: URL) {}
+        func convertVideo() {}
+    }
+
     static var previews: some View {
         let state = VideoConverterState()
         let actionHandler = StubActionHandler()
@@ -167,10 +173,5 @@ struct VideoConverterView_Previews : PreviewProvider {
             VideoConverterView(state: state, actionHandler: actionHandler)
                 .colorScheme(.dark)
         }
-    }
-
-    private struct StubActionHandler : VideoConverterActionHandler {
-        func setInputVideo(at url: URL) {}
-        func convertVideo() {}
     }
 }

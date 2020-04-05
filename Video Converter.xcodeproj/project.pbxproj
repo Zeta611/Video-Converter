@@ -15,11 +15,12 @@
 		69C35DB424387AE600BAFA30 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 69C35DB324387AE600BAFA30 /* Assets.xcassets */; };
 		69C35DB724387AE600BAFA30 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 69C35DB624387AE600BAFA30 /* Preview Assets.xcassets */; };
 		69C35DBA24387AE600BAFA30 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69C35DB824387AE600BAFA30 /* Main.storyboard */; };
-		69C35DC624387AE700BAFA30 /* Video_ConverterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C35DC524387AE700BAFA30 /* Video_ConverterTests.swift */; };
-		69C35DD124387AE700BAFA30 /* Video_ConverterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C35DD024387AE700BAFA30 /* Video_ConverterUITests.swift */; };
+		69C35DC624387AE700BAFA30 /* VideoConverterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C35DC524387AE700BAFA30 /* VideoConverterTests.swift */; };
+		69C35DD124387AE700BAFA30 /* VideoConverterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C35DD024387AE700BAFA30 /* VideoConverterUITests.swift */; };
 		69C35DE524387B3000BAFA30 /* VideoConverterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C35DE424387B3000BAFA30 /* VideoConverterView.swift */; };
 		69C35DE824387B9600BAFA30 /* VideoConverterState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C35DE724387B9600BAFA30 /* VideoConverterState.swift */; };
 		69C35DEA24387C3900BAFA30 /* VideoFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C35DE924387C3900BAFA30 /* VideoFormat.swift */; };
+		69CE093D243A2A6A00563D6A /* VideoConversionError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69CE093C243A2A6A00563D6A /* VideoConversionError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,14 +53,15 @@
 		69C35DBB24387AE600BAFA30 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		69C35DBC24387AE600BAFA30 /* Video_Converter.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Video_Converter.entitlements; sourceTree = "<group>"; };
 		69C35DC124387AE700BAFA30 /* Video ConverterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Video ConverterTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		69C35DC524387AE700BAFA30 /* Video_ConverterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Video_ConverterTests.swift; sourceTree = "<group>"; };
+		69C35DC524387AE700BAFA30 /* VideoConverterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoConverterTests.swift; sourceTree = "<group>"; };
 		69C35DC724387AE700BAFA30 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		69C35DCC24387AE700BAFA30 /* Video ConverterUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Video ConverterUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		69C35DD024387AE700BAFA30 /* Video_ConverterUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Video_ConverterUITests.swift; sourceTree = "<group>"; };
+		69C35DD024387AE700BAFA30 /* VideoConverterUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoConverterUITests.swift; sourceTree = "<group>"; };
 		69C35DD224387AE700BAFA30 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		69C35DE424387B3000BAFA30 /* VideoConverterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoConverterView.swift; sourceTree = "<group>"; };
 		69C35DE724387B9600BAFA30 /* VideoConverterState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoConverterState.swift; sourceTree = "<group>"; };
 		69C35DE924387C3900BAFA30 /* VideoFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoFormat.swift; sourceTree = "<group>"; };
+		69CE093C243A2A6A00563D6A /* VideoConversionError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoConversionError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,7 +133,7 @@
 		69C35DC424387AE700BAFA30 /* Video ConverterTests */ = {
 			isa = PBXGroup;
 			children = (
-				69C35DC524387AE700BAFA30 /* Video_ConverterTests.swift */,
+				69C35DC524387AE700BAFA30 /* VideoConverterTests.swift */,
 				69C35DC724387AE700BAFA30 /* Info.plist */,
 			);
 			path = "Video ConverterTests";
@@ -140,7 +142,7 @@
 		69C35DCF24387AE700BAFA30 /* Video ConverterUITests */ = {
 			isa = PBXGroup;
 			children = (
-				69C35DD024387AE700BAFA30 /* Video_ConverterUITests.swift */,
+				69C35DD024387AE700BAFA30 /* VideoConverterUITests.swift */,
 				69C35DD224387AE700BAFA30 /* Info.plist */,
 			);
 			path = "Video ConverterUITests";
@@ -180,6 +182,7 @@
 			children = (
 				69860FF72438FB7B000129ED /* ProgressBar.swift */,
 				69C35DE924387C3900BAFA30 /* VideoFormat.swift */,
+				69CE093C243A2A6A00563D6A /* VideoConversionError.swift */,
 				69860FF92438FE83000129ED /* Float+cg.swift */,
 			);
 			path = Common;
@@ -195,6 +198,7 @@
 				69C35DA824387AE500BAFA30 /* Sources */,
 				69C35DA924387AE500BAFA30 /* Frameworks */,
 				69C35DAA24387AE500BAFA30 /* Resources */,
+				69FB0A1124399E1C006FF903 /* SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -311,6 +315,27 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		69FB0A1124399E1C006FF903 /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		69C35DA824387AE500BAFA30 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -320,6 +345,7 @@
 				69C35DE824387B9600BAFA30 /* VideoConverterState.swift in Sources */,
 				69C35DEA24387C3900BAFA30 /* VideoFormat.swift in Sources */,
 				69C35DB224387AE500BAFA30 /* ContentView.swift in Sources */,
+				69CE093D243A2A6A00563D6A /* VideoConversionError.swift in Sources */,
 				69860FFA2438FE83000129ED /* Float+cg.swift in Sources */,
 				69C35DE524387B3000BAFA30 /* VideoConverterView.swift in Sources */,
 				69C35DB024387AE500BAFA30 /* AppDelegate.swift in Sources */,
@@ -331,7 +357,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				69C35DC624387AE700BAFA30 /* Video_ConverterTests.swift in Sources */,
+				69C35DC624387AE700BAFA30 /* VideoConverterTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -339,7 +365,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				69C35DD124387AE700BAFA30 /* Video_ConverterUITests.swift in Sources */,
+				69C35DD124387AE700BAFA30 /* VideoConverterUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
