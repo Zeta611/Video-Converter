@@ -6,3 +6,6 @@ flow pattern with a View-State-Interactor structure.
 
 ## Screenshot
 ![screenshot](assets/video-converter.png)
+
+## License
+[MIT](LICENSE)
