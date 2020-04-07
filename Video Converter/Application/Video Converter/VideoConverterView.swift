@@ -68,24 +68,33 @@ struct VideoConverterView : View {
 
     var body: some View {
         VStack {
-            Picker(
-                selection: $state.videoTargetFormat,
-                label: Text("Convert to:")
-                    .font(.body)
-            ) {
-                ForEach(VideoFormat.allCases, id: \.self) {
-                    Text(".\($0.rawValue) (\($0.description))")
+            HStack {
+                VStack(alignment: .trailing, spacing: 9) {
+                    Text("Convert to")
+                    Text("Quality")
                 }
-            }
-            .padding([.horizontal, .top])
+                .font(.body)
 
-            Picker(
-                selection: $state.videoTargetQuality,
-                label: Text("Quality:")
-                    .font(.body)
-            ) {
-                ForEach(VideoQuality.allCases, id: \.self) {
-                    Text($0.rawValue)
+                VStack {
+                    Picker(
+                        selection: $state.videoTargetFormat,
+                        label: Text("Convert to")
+                    ) {
+                        ForEach(VideoFormat.allCases, id: \.self) {
+                            Text(".\($0.rawValue) (\($0.description))")
+                        }
+                    }
+                    .labelsHidden()
+
+                    Picker(
+                        selection: $state.videoTargetQuality,
+                        label: Text("Quality")
+                    ) {
+                        ForEach(VideoQuality.allCases, id: \.self) {
+                            Text($0.rawValue)
+                        }
+                    }
+                    .labelsHidden()
                 }
             }
             .padding(.horizontal)
@@ -121,7 +130,7 @@ struct VideoConverterView : View {
                 }
                 return true
             }
-            .padding()
+            .padding(8)
 
             Button("Convert") {
                 self.actionHandler.convertVideo()
@@ -130,8 +139,8 @@ struct VideoConverterView : View {
                 state.inputVideoPath == nil
                     || state.conversionStatus.isInProgress
             )
-            .padding(.bottom)
         }
+        .padding()
     }
 }
 
