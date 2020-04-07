@@ -13,6 +13,7 @@ final class VideoConverterState : ObservableObject {
     @Published var outputVideoPath: URL?
     @Published var conversionStatus: VideoConversionStatus = .undone
     @Published var videoTargetFormat: VideoFormat = .mov
+    @Published var videoTargetQuality: VideoQuality = .original
 }
 
 extension VideoConverterState {

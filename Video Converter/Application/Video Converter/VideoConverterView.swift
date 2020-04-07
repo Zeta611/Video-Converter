@@ -79,6 +79,17 @@ struct VideoConverterView : View {
             }
             .padding([.horizontal, .top])
 
+            Picker(
+                selection: $state.videoTargetQuality,
+                label: Text("Quality:")
+                    .font(.body)
+            ) {
+                ForEach(VideoQuality.allCases, id: \.self) {
+                    Text($0.rawValue)
+                }
+            }
+            .padding(.horizontal)
+
             DropZone(
                 fillColor: dropZoneFillColor,
                 strokeColor: dropZoneStrokeColor,

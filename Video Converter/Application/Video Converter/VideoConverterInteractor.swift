@@ -42,6 +42,7 @@ final class VideoConverterInteractor : VideoConverterActionHandler {
             return
         }
         let videoTargetFormat = state.videoTargetFormat
+        let videoTargetQuality = state.videoTargetQuality
 
         weak var state = self.state
 
@@ -52,7 +53,8 @@ final class VideoConverterInteractor : VideoConverterActionHandler {
                 self?.getExportSession(
                     from: inputVideoPath,
                     to: outputVideoPath,
-                    of: videoTargetFormat
+                    format: videoTargetFormat,
+                    quality: videoTargetQuality
                 ) ?? Result.Publisher(.unknown)
             }
             .flatMap { exportSession in
@@ -120,12 +122,13 @@ final class VideoConverterInteractor : VideoConverterActionHandler {
     private func getExportSession(
         from inputVideoPath: URL,
         to outputVideoPath: URL,
-        of videoTargetFormat: VideoFormat
+        format videoTargetFormat: VideoFormat,
+        quality videoTargetQuality: VideoQuality
     ) -> Result<AVAssetExportSession, VideoConversionError>.Publisher {
         let avAsset = AVURLAsset(url: inputVideoPath)
         guard let exportSession = AVAssetExportSession(
             asset: avAsset,
-            presetName: AVAssetExportPresetPassthrough
+            presetName: videoTargetQuality.avAssetExportPreset
         ) else {
             return Result.Publisher(.noExportSession)
         }
