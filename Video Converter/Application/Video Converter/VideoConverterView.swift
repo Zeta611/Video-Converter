@@ -13,6 +13,7 @@ struct VideoConverterView : View {
     var actionHandler: VideoConverterActionHandler
 
     @State private var cursorOnDropView = false
+    @State private var maxTextWidth: CGFloat?
 
     private var prompt: String {
         switch state.conversionStatus {
@@ -67,15 +68,10 @@ struct VideoConverterView : View {
     }
 
     var body: some View {
-        VStack {
-            HStack {
-                VStack(alignment: .trailing, spacing: 9) {
-                    Text("Convert to")
-                    Text("Quality")
-                }
-                .font(.body)
-
-                VStack {
+        VStack(spacing: 15) {
+            VStack(alignment: .labelTrailingAlignment) {
+                HStack {
+                    wrappedText("Convert to")
                     Picker(
                         selection: $state.videoTargetFormat,
                         label: Text("Convert to")
@@ -84,8 +80,10 @@ struct VideoConverterView : View {
                             Text(".\($0.rawValue) (\($0.description))")
                         }
                     }
-                    .labelsHidden()
+                }
 
+                HStack {
+                    wrappedText("Quality")
                     Picker(
                         selection: $state.videoTargetQuality,
                         label: Text("Quality")
@@ -94,10 +92,14 @@ struct VideoConverterView : View {
                             Text($0.rawValue)
                         }
                     }
-                    .labelsHidden()
                 }
             }
-            .padding(.horizontal)
+            .backgroundPreferenceValue(BoundsPreferenceKey.self) { values in
+                GeometryReader { geometry in
+                    self.readWidth(from: values, in: geometry)
+                }
+            }
+            .labelsHidden()
 
             DropZone(
                 fillColor: dropZoneFillColor,
@@ -130,7 +132,6 @@ struct VideoConverterView : View {
                 }
                 return true
             }
-            .padding(8)
 
             Button("Convert") {
                 self.actionHandler.convertVideo()
@@ -142,10 +143,37 @@ struct VideoConverterView : View {
         }
         .padding()
     }
+
+    private func wrappedText(_ text: String) -> some View {
+        Text(text)
+            .font(.body)
+            .lineLimit(1)
+            .frame(width: maxTextWidth, alignment: .trailing)
+            .alignmentGuide(.labelTrailingAlignment) { $0[.trailing] }
+            .anchorPreference(
+                key: BoundsPreferenceKey.self,
+                value: .bounds
+            ) {
+                [BoundsPreference(bounds: $0)]
+            }
+    }
+
+    private func readWidth(
+        from values: [BoundsPreference],
+        in geometry: GeometryProxy
+    ) -> some View {
+        DispatchQueue.main.async {
+            self.maxTextWidth = values
+                .map { geometry[$0.bounds].width }
+                .max()
+        }
+        return Rectangle()
+            .hidden()
+    }
 }
 
 extension VideoConverterView {
-    struct DropZone : View {
+    private struct DropZone : View {
         let fillColor: Color
         let strokeColor: Color
         let strokeStyle: StrokeStyle
