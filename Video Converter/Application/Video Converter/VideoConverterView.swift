@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import UniformTypeIdentifiers
 
 struct VideoConverterView : View {
     @ObservedObject var state: VideoConverterState
@@ -67,6 +68,14 @@ struct VideoConverterView : View {
         }
     }
 
+    private var utTypeFileURL: String {
+        if #available(macOS 11.0, iOS 14.0, tvOS 14.0, *) {
+            return UTType.fileURL.identifier
+        } else {
+            return kUTTypeFileURL as String
+        }
+    }
+
     var body: some View {
         VStack(spacing: 15) {
             VStack(alignment: .labelTrailingAlignment) {
@@ -109,14 +118,14 @@ struct VideoConverterView : View {
                 progress: progress
             )
             .onDrop(
-                of: [kUTTypeFileURL as String],
+                of: [utTypeFileURL],
                 isTargeted: $cursorOnDropView
             ) { itemProviders in
                 guard let itemProvider = itemProviders.first
                     else { return false }
 
                 itemProvider.loadItem(
-                    forTypeIdentifier: kUTTypeFileURL as String,
+                    forTypeIdentifier: utTypeFileURL,
                     options: nil
                 ) { item, _ in
                     guard

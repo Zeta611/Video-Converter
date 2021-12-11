@@ -58,7 +58,7 @@ final class VideoConverterInteractor : VideoConverterActionHandler {
                 ) ?? Result.Publisher(.unknown)
             }
             .flatMap { exportSession in
-                Future { promise in
+                Future<AVAssetExportSession, VideoConversionError> { promise in
                     exportSession.exportAsynchronously {
                         promise(.success(exportSession))
                     }

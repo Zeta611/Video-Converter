@@ -20,7 +20,7 @@ struct ProgressBar : View {
             Capsule()
                 .frame(width: geometryReader.size.width * self.progress.cg)
                 .foregroundColor(.green)
-                .animation(.easeIn)
+                .animation(.easeIn, value: progress)
         }
     }
 }
