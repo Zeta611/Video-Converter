@@ -168,6 +168,7 @@ struct VideoConverterView : View {
                 .max()
         }
         return Rectangle()
+            .opacity(0)
             .hidden()
     }
 }
