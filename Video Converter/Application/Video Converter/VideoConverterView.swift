@@ -105,7 +105,7 @@ struct VideoConverterView : View {
             }
             .backgroundPreferenceValue(BoundsPreferenceKey.self) { values in
                 GeometryReader { geometry in
-                    self.readWidth(from: values, in: geometry)
+                    readWidth(from: values, in: geometry)
                 }
             }
             .labelsHidden()
@@ -136,14 +136,14 @@ struct VideoConverterView : View {
                         )
                     else { return }
                     DispatchQueue.main.async {
-                        self.actionHandler.setInputVideo(at: url)
+                        actionHandler.setInputVideo(at: url)
                     }
                 }
                 return true
             }
 
             Button("Convert") {
-                self.actionHandler.convertVideo()
+                actionHandler.convertVideo()
             }
             .disabled(
                 state.inputVideoPath == nil
@@ -172,7 +172,7 @@ struct VideoConverterView : View {
         in geometry: GeometryProxy
     ) -> some View {
         DispatchQueue.main.async {
-            self.maxTextWidth = values
+            maxTextWidth = values
                 .map { geometry[$0.bounds].width }
                 .max()
         }

@@ -18,7 +18,7 @@ struct ProgressBar : View {
                     Color(.unemphasizedSelectedContentBackgroundColor)
             )
             Capsule()
-                .frame(width: geometryReader.size.width * self.progress.cg)
+                .frame(width: geometryReader.size.width * progress.cg)
                 .foregroundColor(.green)
                 .animation(.easeIn, value: progress)
         }

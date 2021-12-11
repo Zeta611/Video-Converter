@@ -44,7 +44,7 @@ final class VideoConverterInteractor : VideoConverterActionHandler {
         let videoTargetFormat = state.videoTargetFormat
         let videoTargetQuality = state.videoTargetQuality
 
-        weak var state = self.state
+        weak var state = state
 
         openPanel(at: inputVideoPath)
             .catch { _ in Empty() }
